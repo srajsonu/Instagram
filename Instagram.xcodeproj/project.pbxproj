@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		928842D82275D79C00FE0B59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928842D72275D79C00FE0B59 /* AppDelegate.swift */; };
-		928842DA2275D79C00FE0B59 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928842D92275D79C00FE0B59 /* ViewController.swift */; };
+		928842DA2275D79C00FE0B59 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928842D92275D79C00FE0B59 /* SigninViewController.swift */; };
 		928842DD2275D79C00FE0B59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 928842DB2275D79C00FE0B59 /* Main.storyboard */; };
-		928842DF2275D79F00FE0B59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 928842DE2275D79F00FE0B59 /* Assets.xcassets */; };
 		928842E22275D79F00FE0B59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 928842E02275D79F00FE0B59 /* LaunchScreen.storyboard */; };
+		928842EA2275E1EC00FE0B59 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928842E92275E1EC00FE0B59 /* SignupViewController.swift */; };
+		928842EE2276386F00FE0B59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 928842ED2276386F00FE0B59 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		928842D42275D79C00FE0B59 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		928842D72275D79C00FE0B59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		928842D92275D79C00FE0B59 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		928842D92275D79C00FE0B59 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		928842DC2275D79C00FE0B59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		928842DE2275D79F00FE0B59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		928842E12275D79F00FE0B59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		928842E32275D79F00FE0B59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		928842E92275E1EC00FE0B59 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		928842ED2276386F00FE0B59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../IOS Projects/iChat/iChat/Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +57,12 @@
 			isa = PBXGroup;
 			children = (
 				928842D72275D79C00FE0B59 /* AppDelegate.swift */,
-				928842D92275D79C00FE0B59 /* ViewController.swift */,
+				928842D92275D79C00FE0B59 /* SigninViewController.swift */,
+				928842E92275E1EC00FE0B59 /* SignupViewController.swift */,
 				928842DB2275D79C00FE0B59 /* Main.storyboard */,
-				928842DE2275D79F00FE0B59 /* Assets.xcassets */,
 				928842E02275D79F00FE0B59 /* LaunchScreen.storyboard */,
 				928842E32275D79F00FE0B59 /* Info.plist */,
+				928842ED2276386F00FE0B59 /* Assets.xcassets */,
 			);
 			path = Instagram;
 			sourceTree = "<group>";
@@ -123,7 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				928842E22275D79F00FE0B59 /* LaunchScreen.storyboard in Resources */,
-				928842DF2275D79F00FE0B59 /* Assets.xcassets in Resources */,
+				928842EE2276386F00FE0B59 /* Assets.xcassets in Resources */,
 				928842DD2275D79C00FE0B59 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,7 +138,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				928842DA2275D79C00FE0B59 /* ViewController.swift in Sources */,
+				928842EA2275E1EC00FE0B59 /* SignupViewController.swift in Sources */,
+				928842DA2275D79C00FE0B59 /* SigninViewController.swift in Sources */,
 				928842D82275D79C00FE0B59 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
