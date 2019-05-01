@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vjJ-ge-kWi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -26,7 +26,6 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DpW-cq-mse">
                                 <rect key="frame" x="20" y="171" width="374" height="30"/>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
@@ -44,6 +43,9 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="9ZT-BE-d8e" kind="presentation" id="bbR-v6-C3x"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GkU-eQ-wMc">
                                 <rect key="frame" x="20" y="686" width="374" height="30"/>
@@ -81,6 +83,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="DpW-cq-mse" id="9Xn-eD-tc0"/>
+                        <outlet property="passwordTextField" destination="BSW-9V-AaE" id="kmg-r3-Laf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -113,7 +119,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nmN-yk-E3B">
                                         <rect key="frame" x="0.0" y="118" width="374" height="30"/>
@@ -135,6 +141,9 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="signupButtonPressed:" destination="gj4-es-cQK" eventType="touchUpInside" id="Adn-p1-1i3"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -144,6 +153,9 @@
                                 <state key="normal" title="Already Have an account? Sign In">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="dismissOnClick:" destination="gj4-es-cQK" eventType="touchUpInside" id="hcO-bG-3kU"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dp" translatesAutoresizingMaskIntoConstraints="NO" id="KFX-85-Bja">
                                 <rect key="frame" x="154" y="61" width="106" height="106"/>
@@ -164,115 +176,27 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zss-qO-Fbr"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="g3U-a0-dg1" id="Ai7-LQ-w3Q"/>
+                        <outlet property="passwordTextField" destination="nmN-yk-E3B" id="trS-ej-oN9"/>
+                        <outlet property="profileImages" destination="KFX-85-Bja" id="TsL-gF-gng"/>
+                        <outlet property="usernameTextField" destination="XEy-h0-H0I" id="qMr-2g-aLb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ee8-wB-RNX" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="476.81159420289856" y="23.64130434782609"/>
+            <point key="canvasLocation" x="436" y="24"/>
         </scene>
-        <!--Discover-->
-        <scene sceneID="75Z-mv-AnS">
+        <!--tabBarId-->
+        <scene sceneID="nD5-VL-Muw">
             <objects>
-                <viewController id="GJ4-j3-tYB" customClass="SearchViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Lrj-rD-XS2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="rNJ-M2-Mic"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Discover" image="IG_Glyph_fill" id="qLC-dv-IuL"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TER-Gy-erU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardIdentifier="tabBarId" storyboardName="Start" referencedIdentifier="tabBarId" id="9ZT-BE-d8e" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OJp-6G-0Rs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2074" y="-273"/>
-        </scene>
-        <!--Photos-->
-        <scene sceneID="4EL-xW-Wlh">
-            <objects>
-                <viewController id="NQl-OE-rji" customClass="PhotosViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="uQO-q5-Mpr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="ep4-Kg-rip"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Photos" id="Uce-Wk-Y7J"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7sO-pS-8SO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2074" y="423"/>
-        </scene>
-        <!--Activity-->
-        <scene sceneID="8b7-cM-JpZ">
-            <objects>
-                <viewController id="UQj-UU-WvS" customClass="ActivityViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="tCS-8i-S8t">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Jno-2i-KVv"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Activity" id="ybP-zg-dhM"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xq0-YG-VaO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2074" y="1145"/>
-        </scene>
-        <!--About-->
-        <scene sceneID="ceJ-ES-7g1">
-            <objects>
-                <viewController id="GXw-dy-RqU" customClass="AboutViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="uQt-gJ-dbt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="coJ-JG-DSY"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="About" id="2Nm-fH-07k"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="X22-HM-FBQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2074" y="1833"/>
-        </scene>
-        <!--Home-->
-        <scene sceneID="362-ko-T6f">
-            <objects>
-                <viewController id="SDU-kU-OKW" customClass="HomeViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="vIP-r6-mZi">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="inj-2X-geB"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="IG_Glyph_fill" selectedImage="IG_Glyph_fill" id="fz2-VY-jN7"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bQV-2e-hH1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2074" y="-1024"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="4iO-QJ-csT">
-            <objects>
-                <tabBarController id="vjJ-ge-kWi" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gxb-4p-ZIe">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="SDU-kU-OKW" kind="relationship" relationship="viewControllers" id="wM4-H8-r7F"/>
-                        <segue destination="GJ4-j3-tYB" kind="relationship" relationship="viewControllers" id="ETg-Jo-EUe"/>
-                        <segue destination="NQl-OE-rji" kind="relationship" relationship="viewControllers" id="kcy-eg-OJe"/>
-                        <segue destination="UQj-UU-WvS" kind="relationship" relationship="viewControllers" id="KgI-Kq-Ky9"/>
-                        <segue destination="GXw-dy-RqU" kind="relationship" relationship="viewControllers" id="h5e-oc-IWz"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RDR-3f-R7c" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1225" y="38"/>
+            <point key="canvasLocation" x="101" y="435"/>
         </scene>
     </scenes>
     <resources>
-        <image name="IG_Glyph_fill" width="16" height="16"/>
         <image name="dp" width="236" height="334"/>
     </resources>
 </document>
