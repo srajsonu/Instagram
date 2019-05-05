@@ -15,6 +15,7 @@ class SignupViewController: UIViewController {
     
     var selectedImage: UIImage?
 
+    @IBOutlet weak var signupButton: UIButton!
     @IBOutlet weak var profileImages: UIImageView!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -55,7 +56,24 @@ class SignupViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignupViewController.handleSelectProfileImageView))
         profileImages.addGestureRecognizer(tapGesture)
         profileImages.isUserInteractionEnabled = true
+        
+        handleTextField()
     }
+    func handleTextField(){
+        usernameTextField.addTarget(self, action: #selector(SignupViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
+        emailTextField.addTarget(self, action: #selector(SignupViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
+        passwordTextField.addTarget(self, action: #selector(SignupViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
+    }
+    @objc func textFieldDidChange(){
+        guard let username = usernameTextField.text, !username.isEmpty, let email = emailTextField.text, !email.isEmpty,let password = passwordTextField.text, !password.isEmpty else {
+            signupButton.setTitleColor(.lightText, for: UIControl.State.normal)
+            signupButton.isEnabled = false
+            return
+        }
+        signupButton.setTitleColor(.white, for: UIControl.State.normal)
+        signupButton.isEnabled = true
+    }
+    
     @objc func handleSelectProfileImageView(){
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
@@ -78,16 +96,22 @@ class SignupViewController: UIViewController {
                     if error != nil{
                         return
                     }
-                    let imageURL = metadata
-                    let ref = Database.database().reference()
-                    let userRef = ref.child("users")
-                    let newUserRef = userRef.child(uid!)
-                    newUserRef.setValue(["Username":self.usernameTextField.text!,"Email":self.emailTextField.text!,"imageURL":imageURL])
-                    print(newUserRef.description())
-                    
+                   self.setUserInfo(username: self.usernameTextField.text!, email: self.emailTextField.text!,password: self.passwordTextField.text!, uid: uid!)
+//                    let ref = Database.database().reference()
+//                    let userRef = ref.child("users")
+//                    let newUserRef = userRef.child(uid!)
+//                newUserRef.setValue(["Username":self.usernameTextField.text!,"Email":self.emailTextField.text!,"password":self.passwordTextField.text!])
+//                    print(newUserRef.description())
                 })
             }
         }
+    }
+    func setUserInfo(username: String,email: String,password: String,uid: String){
+        let ref = Database.database().reference()
+        let userRef = ref.child("users")
+        let newUserRef = userRef.child(uid)
+        newUserRef.setValue(["Username":usernameTextField.text!,"Email":emailTextField.text!,"password":passwordTextField.text!])
+        print(newUserRef.description())
     }
 }
 extension SignupViewController : UIImagePickerControllerDelegate,UINavigationControllerDelegate {
