@@ -62,6 +62,7 @@ class SignupViewController: UIViewController {
         profileImages.addGestureRecognizer(tapGesture)
         profileImages.isUserInteractionEnabled = true
         
+        signupButton.isEnabled = false
         handleTextField()
     }
     func handleTextField(){

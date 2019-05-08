@@ -33,7 +33,16 @@ class SigninViewController: UIViewController {
         bottomLayerPassword.frame = CGRect(x: 0, y: 29, width: 1000, height: 0.6)
         bottomLayerPassword.backgroundColor = UIColor(red: 50/255, green: 50/255, blue: 25/255, alpha: 1).cgColor
         passwordTextField.layer.addSublayer(bottomLayerPassword)
+        
+        signinButton.isEnabled = false 
         handleTextField()
+    }
+    //MARK - Auto- SignIn
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if Auth.auth().currentUser != nil {
+            self.performSegue(withIdentifier: "signinToTabBarVC", sender: nil)
+        }
     }
     func handleTextField(){
         emailTextField.addTarget(self, action: #selector(SignupViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
@@ -49,12 +58,9 @@ class SigninViewController: UIViewController {
         signinButton.isEnabled = true
     }
     @IBAction func signInButtonPressed(_ sender: UIButton) {
-        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
-            if error != nil{
-                print(error?.localizedDescription as Any)
-                return
-            }
-            self.performSegue(withIdentifier: "signinToTabBarVC", sender: nil)
+        AuthService.SignIn(email: emailTextField.text!, password: passwordTextField.text!) {
+            print("onSucees")
         }
+       // self.performSegue(withIdentifier: "signinToTabBarVC", sender: nil)
     }
 }
