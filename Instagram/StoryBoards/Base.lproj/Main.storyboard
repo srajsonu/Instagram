@@ -13,7 +13,7 @@
         <!--Signin View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SigninViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SigninViewController" id="BYZ-38-t0r" customClass="SigninViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -87,6 +87,7 @@
                         <outlet property="emailTextField" destination="DpW-cq-mse" id="9Xn-eD-tc0"/>
                         <outlet property="passwordTextField" destination="BSW-9V-AaE" id="kmg-r3-Laf"/>
                         <outlet property="signinButton" destination="qHx-sv-DMx" id="ji2-M8-8RQ"/>
+                        <segue destination="9ZT-BE-d8e" kind="presentation" identifier="signinToTabBarVC" id="t8p-B6-8gP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -129,7 +130,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="new-password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iyZ-4v-OpZ">
                                         <rect key="frame" x="0.0" y="177" width="335" height="44"/>
@@ -203,6 +204,7 @@
                         <outlet property="profileImages" destination="KFX-85-Bja" id="TsL-gF-gng"/>
                         <outlet property="signupButton" destination="iyZ-4v-OpZ" id="WaH-Uu-Hl2"/>
                         <outlet property="usernameTextField" destination="XEy-h0-H0I" id="qMr-2g-aLb"/>
+                        <segue destination="9ZT-BE-d8e" kind="presentation" identifier="signupToTabBarVC" id="5br-8b-ZTo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ee8-wB-RNX" sceneMemberID="firstResponder"/>
@@ -221,4 +223,7 @@
     <resources>
         <image name="dp" width="236" height="334"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="t8p-B6-8gP"/>
+    </inferredMetricsTieBreakers>
 </document>

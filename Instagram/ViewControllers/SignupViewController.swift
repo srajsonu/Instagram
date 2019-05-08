@@ -50,6 +50,11 @@ class SignupViewController: UIViewController {
         bottomLayerPassword.backgroundColor = UIColor(red: 50/255, green: 50/255, blue: 25/255, alpha: 1).cgColor
         passwordTextField.layer.addSublayer(bottomLayerPassword)
         
+        passwordTextField.textContentType = .newPassword
+        passwordTextField.isSecureTextEntry = true
+        
+        passwordTextField.passwordRules = UITextInputPasswordRules(descriptor: "required: upper; required: digit; max-consecutive: 2; minlength: 8;")
+        
         profileImages.layer.cornerRadius = 53
         profileImages.clipsToBounds = true
         
@@ -96,22 +101,17 @@ class SignupViewController: UIViewController {
                     if error != nil{
                         return
                     }
-                   self.setUserInfo(username: self.usernameTextField.text!, email: self.emailTextField.text!,password: self.passwordTextField.text!, uid: uid!)
-//                    let ref = Database.database().reference()
-//                    let userRef = ref.child("users")
-//                    let newUserRef = userRef.child(uid!)
-//                newUserRef.setValue(["Username":self.usernameTextField.text!,"Email":self.emailTextField.text!,"password":self.passwordTextField.text!])
-//                    print(newUserRef.description())
+                   self.setUserInfo(username: self.usernameTextField.text!, email: self.emailTextField.text!, uid: uid!)
                 })
             }
         }
     }
-    func setUserInfo(username: String,email: String,password: String,uid: String){
+    func setUserInfo(username: String,email: String,uid: String){
         let ref = Database.database().reference()
-        let userRef = ref.child("users")
+        let userRef = ref.child("Users")
         let newUserRef = userRef.child(uid)
-        newUserRef.setValue(["Username":usernameTextField.text!,"Email":emailTextField.text!,"password":passwordTextField.text!])
-        print(newUserRef.description())
+        newUserRef.setValue(["username": username,"email" :email])
+        self.performSegue(withIdentifier: "signupToTabBarVC", sender: nil)
     }
 }
 extension SignupViewController : UIImagePickerControllerDelegate,UINavigationControllerDelegate {

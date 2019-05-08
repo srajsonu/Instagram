@@ -54,7 +54,7 @@ class SigninViewController: UIViewController {
                 print(error?.localizedDescription as Any)
                 return
             }
-            print(user!)
+            self.performSegue(withIdentifier: "signinToTabBarVC", sender: nil)
         }
     }
 }
