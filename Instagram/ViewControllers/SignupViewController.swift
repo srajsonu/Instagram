@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
+import ProgressHUD
 
 class SignupViewController: UIViewController {
     
@@ -65,6 +66,10 @@ class SignupViewController: UIViewController {
         signupButton.isEnabled = false
         handleTextField()
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
     func handleTextField(){
         usernameTextField.addTarget(self, action: #selector(SignupViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
         emailTextField.addTarget(self, action: #selector(SignupViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
@@ -89,30 +94,18 @@ class SignupViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     @IBAction func signupButtonPressed(_ sender: UIButton) {
-        
-        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
-            if error != nil{
-                print(error!.localizedDescription)
-                return
+        view.endEditing(true)
+        ProgressHUD.show("Waiting...", interaction: false)
+         if let profileImg = self.selectedImage,let imageData = profileImg.jpegData(compressionQuality: 0.1){
+            AuthService.SignUp(username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, imageData: imageData, onSuccess: {
+                ProgressHUD.showSuccess("Success")
+                self.performSegue(withIdentifier: "signupToTabBarVC", sender: nil)
+            }) { (errorStr) in
+                ProgressHUD.showError(errorStr!)
             }
-            let uid = user?.user.uid
-            let storageRef = Storage.storage().reference().child("ProfileImages").child(uid!)
-            if let profileImg = self.selectedImage,let imageData = profileImg.jpegData(compressionQuality: 0.1){
-                storageRef.putData(imageData, metadata: nil, completion: { (metadata, error) in
-                    if error != nil{
-                        return
-                    }
-                   self.setUserInfo(username: self.usernameTextField.text!, email: self.emailTextField.text!, uid: uid!)
-                })
-            }
+         }else {
+            ProgressHUD.showError("Profile image Can't be Empty")
         }
-    }
-    func setUserInfo(username: String,email: String,uid: String){
-        let ref = Database.database().reference()
-        let userRef = ref.child("Users")
-        let newUserRef = userRef.child(uid)
-        newUserRef.setValue(["username": username,"email" :email])
-        self.performSegue(withIdentifier: "signupToTabBarVC", sender: nil)
     }
 }
 extension SignupViewController : UIImagePickerControllerDelegate,UINavigationControllerDelegate {

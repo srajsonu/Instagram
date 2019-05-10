@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import ProgressHUD
 
 class SigninViewController: UIViewController {
 
@@ -37,6 +38,9 @@ class SigninViewController: UIViewController {
         signinButton.isEnabled = false 
         handleTextField()
     }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
     //MARK - Auto- SignIn
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -58,9 +62,14 @@ class SigninViewController: UIViewController {
         signinButton.isEnabled = true
     }
     @IBAction func signInButtonPressed(_ sender: UIButton) {
-        AuthService.SignIn(email: emailTextField.text!, password: passwordTextField.text!) {
-            print("onSucees")
+        view.endEditing(true)
+        ProgressHUD.show("Waiting...", interaction: false)
+        AuthService.SignIn(email: emailTextField.text!, password: passwordTextField.text!, onSuccess: {
+            ProgressHUD.showSuccess("Success")
+            self.performSegue(withIdentifier: "signinToTabBarVC", sender: nil)
+        }) {error in
+            ProgressHUD.showError(error!)
         }
-       // self.performSegue(withIdentifier: "signinToTabBarVC", sender: nil)
+       
     }
 }
