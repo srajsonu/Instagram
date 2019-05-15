@@ -49,8 +49,8 @@ class SigninViewController: UIViewController {
         }
     }
     func handleTextField(){
-        emailTextField.addTarget(self, action: #selector(SignupViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
-        passwordTextField.addTarget(self, action: #selector(SignupViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
+        emailTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
+        passwordTextField.addTarget(self, action: #selector(self .textFieldDidChange), for: UIControl.Event.editingChanged)
     }
     @objc func textFieldDidChange(){
         guard let email = emailTextField.text, !email.isEmpty,let password = passwordTextField.text, !password.isEmpty else {

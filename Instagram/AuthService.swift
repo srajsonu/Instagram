@@ -12,6 +12,8 @@ import FirebaseDatabase
 import FirebaseStorage
 class AuthService {
     
+    var imageURL: String?
+    
     static func SignIn(email: String, password: String, onSuccess: @escaping () -> Void, onError: @escaping (_ errorMessage: String?) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if error != nil{
@@ -28,13 +30,21 @@ class AuthService {
                 onError(error!.localizedDescription)
                 return
             }
+            
+            
             let uid = user?.user.uid
             let storageRef = Storage.storage().reference().child("ProfileImages").child(uid!)
+            
            
                 storageRef.putData(imageData, metadata: nil, completion: { (metadata, error) in
                     if error != nil{
                         return
                     }
+//                    storageRef.downloadURL(completion: { (url, error) in
+//                        if let metaImageURL = url?.absoluteString{
+//                            
+//                        }
+//                    })
                     self.setUserInfo(username: username, email: email, uid: uid!, onSuccess: onSuccess)
                 })
         }

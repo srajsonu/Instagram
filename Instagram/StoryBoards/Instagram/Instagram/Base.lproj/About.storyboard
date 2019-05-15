@@ -26,11 +26,13 @@
             </objects>
             <point key="canvasLocation" x="3759" y="-233"/>
         </scene>
-        <!--About-->
+        <!--Navigation Controller-->
         <scene sceneID="FMN-Ai-fEV">
             <objects>
                 <navigationController storyboardIdentifier="NavigationAbout" automaticallyAdjustsScrollViewInsets="NO" id="ulM-9g-mns" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="About" id="2Nm-fH-07k"/>
+                    <tabBarItem key="tabBarItem" title="" image="About" id="2Nm-fH-07k">
+                        <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bPJ-ug-KYT">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
@@ -46,4 +48,7 @@
             <point key="canvasLocation" x="3045" y="-233"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="About" width="50" height="50"/>
+    </resources>
 </document>

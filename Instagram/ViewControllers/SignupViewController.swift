@@ -59,7 +59,7 @@ class SignupViewController: UIViewController {
         profileImages.layer.cornerRadius = 53
         profileImages.clipsToBounds = true
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignupViewController.handleSelectProfileImageView))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleSelectProfileImageView))
         profileImages.addGestureRecognizer(tapGesture)
         profileImages.isUserInteractionEnabled = true
         
@@ -71,9 +71,9 @@ class SignupViewController: UIViewController {
         view.endEditing(true)
     }
     func handleTextField(){
-        usernameTextField.addTarget(self, action: #selector(SignupViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
-        emailTextField.addTarget(self, action: #selector(SignupViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
-        passwordTextField.addTarget(self, action: #selector(SignupViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
+        usernameTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
+        emailTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
+        passwordTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
     }
     @objc func textFieldDidChange(){
         guard let username = usernameTextField.text, !username.isEmpty, let email = emailTextField.text, !email.isEmpty,let password = passwordTextField.text, !password.isEmpty else {

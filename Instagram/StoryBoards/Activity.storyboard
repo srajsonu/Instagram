@@ -26,11 +26,13 @@
             </objects>
             <point key="canvasLocation" x="3272" y="-254"/>
         </scene>
-        <!--Activity-->
+        <!--Navigation Controller-->
         <scene sceneID="NKw-Ky-e64">
             <objects>
                 <navigationController storyboardIdentifier="NavigationActivity" automaticallyAdjustsScrollViewInsets="NO" id="dhF-eh-aKT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Activity" id="ybP-zg-dhM"/>
+                    <tabBarItem key="tabBarItem" title="" image="Activity" id="ybP-zg-dhM">
+                        <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2le-QE-Nic">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
@@ -46,4 +48,7 @@
             <point key="canvasLocation" x="2559" y="-254"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Activity" width="50" height="50"/>
+    </resources>
 </document>
