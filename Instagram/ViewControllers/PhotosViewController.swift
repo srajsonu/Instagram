@@ -12,8 +12,6 @@ import FirebaseStorage
 import FirebaseDatabase
 
 class PhotosViewController: UIViewController {
-    
-    //var imageURL:String?
 
     @IBOutlet weak var photosView: UIImageView!
     @IBOutlet weak var captionTextView: UITextView!

@@ -35,6 +35,7 @@
                 <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="NavigationHome" id="DCz-Fy-HIF" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="Home" selectedImage="camera" id="BA8-bm-fnG">
                         <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="okC-Of-iwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
