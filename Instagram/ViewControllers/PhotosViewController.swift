@@ -10,9 +10,11 @@ import UIKit
 import ProgressHUD
 import FirebaseStorage
 import FirebaseDatabase
+import ImagePicker
 
-class PhotosViewController: UIViewController {
+class PhotosViewController: UIViewController, ImagePickerDelegate {
 
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var photosView: UIImageView!
     @IBOutlet weak var captionTextView: UITextView!
     @IBOutlet weak var shareButton: UIButton!
@@ -49,6 +51,27 @@ class PhotosViewController: UIViewController {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
         present(pickerController, animated: true, completion: nil)
+    }
+    @IBAction func cameraButtonPressed(_ sender: Any) {
+        let imagePickerController = ImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.imageLimit = 5
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]){
+        print("Wrapper")
+    }
+    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]){
+        guard let image = images.first else{
+            dismiss(animated: true, completion: nil)
+            return
+        }
+        selectedImage = image
+        photosView.image = image
+        dismiss(animated: true, completion: nil)
+    }
+    func cancelButtonDidPress(_ imagePicker: ImagePickerController){
+        print("Cancel")
     }
     @IBAction func removeButtonPressed(_ sender: Any) {
         clean()

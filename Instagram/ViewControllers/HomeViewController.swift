@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import ImagePicker
 
 class HomeViewController: UIViewController {
     
